@@ -1,3 +1,5 @@
+import streamlit as st
+from segmentacion import pagina_segmentos
 import json
 from datetime import datetime
 from pathlib import Path
@@ -255,11 +257,12 @@ del pedido (artículos y vendedores).
 
 
 # ----------------------------- Navegación -----------------------------
-st.set_page_config(page_title="Riesgo de mala reseña", page_icon="📦")
+st.set_page_config(page_title="Riesgo de mala reseña", page_icon="📦", layout="wide")
 
 paginas = [
     st.Page(pagina_pedido, title="Riesgo de un pedido", icon="⚠️", default=True),
     st.Page(pagina_lotes, title="Predicción por lotes", icon="📂"),
+    st.Page(pagina_segmentos, title="Segmentación de vendedores", icon="🧭"),
     st.Page(pagina_ficha, title="Ficha del modelo", icon="📄"),
 ]
 pg = st.navigation(paginas)

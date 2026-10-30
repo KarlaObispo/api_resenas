@@ -10,9 +10,9 @@ import preparacion      # el modelo guardado busca aquí sus funciones; debe imp
 
 modelo = joblib.load(Path(__file__).parent / "modelo_riesgo.joblib")
 
-# Corte del 10% de mayor riesgo, tomado de la validación (0.373).
-# Es una aproximación: se revisa si el modelo se vuelve a entrenar.
-UMBRAL_RIESGO_ALTO = 0.373
+# Corte del 10% de mayor riesgo, tomado de la validación (0.364).
+
+UMBRAL_RIESGO_ALTO = 0.364
 
 app = FastAPI(title="API de riesgo de mala reseña")
 

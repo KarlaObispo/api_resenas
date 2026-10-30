@@ -42,7 +42,7 @@ def inicio():
     return {"estado": "ok", "modelo": "XGBoost"}
 
 
-@app.post("/predecir")
+@app.post("/riesgo")
 def predecir(pedidos: list[Pedido]):
     df = pd.DataFrame([p.model_dump() for p in pedidos])
     proba = modelo.predict_proba(df)[:, 1]

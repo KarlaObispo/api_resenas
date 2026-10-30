@@ -110,7 +110,7 @@ def consultar(pedidos, api_url, lote=500):
     resultados = []
     barra = st.progress(0.0)
     for i in range(0, len(pedidos), lote):
-        r = requests.post(f"{api_url}/predecir", json=pedidos[i:i + lote], timeout=180)
+        r = requests.post(f"{api_url}/riesgo", json=pedidos[i:i + lote], timeout=180)
         if not r.ok:
             raise RuntimeError(f"La API respondió {r.status_code}: {r.text[:500]}")
         resultados += r.json()

@@ -144,16 +144,16 @@ def pagina_segmentos():
                                       placeholder="Escribe el seller_id",
                                       key="filter_seller_id").strip()
 
-    estado_sel = "Todos"
-    if MOSTRAR_FILTRO_ESTADO:
-        with st.expander("📍 Filtrar por estado del vendedor", expanded=False):
-            estados = sorted(df["estado_seller"].dropna().unique().tolist())
-            opciones_estado = (["Todos"] + estados
-                               + (["Sin dato"] if df["estado_seller"].isna().any() else []))
-            estado_sel = st.selectbox("Estado", opciones_estado, key="filter_state")
-            if n_estados_invalidos:
-                st.caption(f"{n_estados_invalidos} vendedores traían en este campo valores que "
-                           "no son siglas de estado y aparecen como «Sin dato».")
+    #estado_sel = "Todos"
+    #if MOSTRAR_FILTRO_ESTADO:
+    #    with st.expander("📍 Filtrar por estado del vendedor", expanded=False):
+    #        estados = sorted(df["estado_seller"].dropna().unique().tolist())
+    #        opciones_estado = (["Todos"] + estados
+    #                           + (["Sin dato"] if df["estado_seller"].isna().any() else []))
+    #        estado_sel = st.selectbox("Estado", opciones_estado, key="filter_state")
+    #        if n_estados_invalidos:
+    #           st.caption(f"{n_estados_invalidos} vendedores traían en este campo valores que "
+    #                  "no son siglas de estado y aparecen como «Sin dato».")
 
     with st.expander("🏷️ Filtrar por categoría principal", expanded=False):
         categorias = sorted(df["categoria_mas_pedidos"].dropna().unique().tolist())
@@ -172,10 +172,10 @@ def pagina_segmentos():
         filtered = filtered[filtered["seller_id"].astype(str).str.contains(
             seller_search, case=False, na=False, regex=False)]
 
-    if estado_sel == "Sin dato":
-        filtered = filtered[filtered["estado_seller"].isna()]
-    elif estado_sel != "Todos":
-        filtered = filtered[(filtered["estado_seller"] == estado_sel).fillna(False)]
+    #if estado_sel == "Sin dato":
+    #    filtered = filtered[filtered["estado_seller"].isna()]
+    #elif estado_sel != "Todos":
+    #    filtered = filtered[(filtered["estado_seller"] == estado_sel).fillna(False)]
 
     if categoria_sel == "Sin dato":
         filtered = filtered[filtered["categoria_mas_pedidos"].isna()]

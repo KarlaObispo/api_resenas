@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 import preparacion      # el modelo guardado busca aquí sus funciones; debe importarse antes de cargarlo
 
-modelo = joblib.load(Path(__file__).parent / "modelo_riesgo_xgb.joblib")
+modelo = joblib.load(Path(__file__).parent / "modelo_riesgo.joblib")
 
 # Corte del 10% de mayor riesgo, tomado de la validación (0.373).
 # Es una aproximación: se revisa si el modelo se vuelve a entrenar.
@@ -39,7 +39,7 @@ class Pedido(BaseModel):
 
 @app.get("/")
 def inicio():
-    return {"estado": "ok", "modelo": "HistGradientBoosting"}
+    return {"estado": "ok", "modelo": "XGBoost"}
 
 
 @app.post("/predecir")

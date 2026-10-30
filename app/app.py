@@ -9,7 +9,7 @@ import requests
 import streamlit as st
 
 API_URL_DEFECTO = "https://api-resenas.onrender.com"
-UMBRAL_RIESGO_ALTO = 0.373      # API main
+UMBRAL_RIESGO_ALTO = 0.364      # API main
 
 UF = {"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
       "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"}

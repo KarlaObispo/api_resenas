@@ -9,7 +9,7 @@ import requests
 import streamlit as st
 
 API_URL_DEFECTO = "https://api-resenas.onrender.com"
-UMBRAL_RIESGO_ALTO = 0.373      # debe coincidir con el valor de main.py en la API
+UMBRAL_RIESGO_ALTO = 0.373      # API main
 
 UF = {"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
       "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"}
@@ -236,7 +236,7 @@ validó con los siguientes hasta mayo de 2018 (20,724; 14.8% de malas reseñas).
 
 **Métrica:** precisión en el 10% de pedidos de mayor riesgo.
 """)
-    # Cifras de la validación; actualizar si el modelo se vuelve a entrenar
+    # Cifras de la validación
     ficha = pd.DataFrame({
         "Periodo": ["Validación completa", "Abril 2018", "Mayo 2018"],
         "Azar": [0.148, 0.118, 0.108],
@@ -245,14 +245,14 @@ validó con los siguientes hasta mayo de 2018 (20,724; 14.8% de malas reseñas).
     }).set_index("Periodo")
     st.table(ficha)
     st.markdown("""
-**Variables que más pesan:** los tiempos de entrega (sobre todo estimada menos real) y el tamaño
-del pedido (artículos y vendedores).
+**Variables que más pesan:** Días diferencía entrega (Los días de retraso), la cantidad de items del pedido y los tiempos de entrega .
 
 **Límites:**
 - La fecha de entrega al cliente es obligatoria: el modelo predice al momento de entregar.
+- Los datos de la predicción requerida deben subirse en formato json (Validar formato de las variables de fecha antes de subir)
 - El corte de "riesgo alto" (37.3%) viene de la validación y es aproximado.
 - La API no guarda los pedidos que recibe.
-- El servicio gratuito se duerme tras un rato sin uso; la primera consulta puede tardar.
+-
 """)
 
 

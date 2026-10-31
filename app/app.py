@@ -277,7 +277,7 @@ datos muestran la asociación, pero no prueban el motivo.
 - 📆 La fecha de entrega al cliente es obligatoria: el modelo predice al momento de la entrega.
 - 📂 Los datos para la predicción por lotes deben subirse en formato JSON (valida el formato de las
   fechas antes de subirlos).
-- 🎚️ El corte de «riesgo alto» (37.3%) viene de la validación y es aproximado.
+- 🎚️ El corte de «riesgo alto» (36.4%) viene de la validación y es aproximado.
 - ⭐ Por sí solas, las estrellas no explican la inconformidad del cliente, por lo que no deberían
   usarse como único factor para evaluar el desempeño de un producto o de un vendedor.
 - ❌ La predicción puede fallar si no se completan los campos obligatorios.
